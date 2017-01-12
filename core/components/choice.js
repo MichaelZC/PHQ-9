@@ -2,17 +2,18 @@ import React from 'react';
 
 const choiceContainerStyle = {
   padding: '1em',
-  backgroundColor: '#E8EAF6',
   flex: 1,
   margin: '1em',
   border: '0.5px solid #3F51B5',
   textAlign: 'center',
 };
 
-const Choice = ({ text, action, questionIndex, answerIndex }) => (
+const Choice = ({ selected, text, action, questionIndex, answerIndex }) => (
   <div
     onClick={() => action(questionIndex, answerIndex)}
-    style={choiceContainerStyle}
+    style={Object.assign({
+      backgroundColor: selected ? '#2196F3' : '#E8EAF6',
+    }, choiceContainerStyle)}
   >
     {text}
   </div>
@@ -23,6 +24,7 @@ Choice.propTypes = {
   action: React.PropTypes.func.isRequired,
   answerIndex: React.PropTypes.number.isRequired,
   questionIndex: React.PropTypes.number.isRequired,
+  selected: React.PropTypes.bool.isRequired,
 };
 
 export default Choice;

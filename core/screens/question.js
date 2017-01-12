@@ -9,7 +9,12 @@ const Question = ({ questionIndex }) => (
     <Prompt text={TestConstants.PROMPTS[questionIndex]} />
     <Row>
       {TestConstants.RESPONSES.map(
-        (text, i) => <Button key={i} answerIndex={i} questionIndex={questionIndex} text={text} />,
+        (text, i) => <Button
+          key={i} 
+          answerIndex={i}
+          questionIndex={questionIndex}
+          text={text}
+        />,
       )}
     </Row>
   </div>

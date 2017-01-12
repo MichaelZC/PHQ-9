@@ -8,4 +8,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Choice);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    selected: state.responses[ownProps.questionIndex] === ownProps.answerIndex,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Choice);
