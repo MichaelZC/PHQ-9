@@ -13,7 +13,9 @@ const Row = ({ children }) => (
 Row.propTypes = {
   // We can make this more specific. We know exactly what's going in,
   // but for now leave it simple.
-  children: React.PropTypes.arrayOf(React.PropTypes.func).isRequired,
+  // Revision: actually fuck forgot that children can be an array OR a single element
+  // TODO: create a proptype for this shit.
+  children: React.PropTypes.any.isRequired, //eslint-disable-line
 };
 
 export default Row;

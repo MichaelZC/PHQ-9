@@ -2,6 +2,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
 
+if (typeof window === 'undefined') {
+  global.window = {};
+}
+
 const getStore = () => {
   const composeEnhancers = (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
   const store = createStore(
