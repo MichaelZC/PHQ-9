@@ -1,8 +1,9 @@
 import React from 'react';
 import Question from './screens/question';
+import TestConstants from './constants/phq-9-constants';
 
 export default () => (
   <div>
-    <Question promptIndex={1} />
+    {TestConstants.PROMPTS.map((prompt, index) => <Question promptIndex={index} />)}
   </div>
 );
