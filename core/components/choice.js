@@ -9,8 +9,20 @@ const choiceContainerStyle = {
   textAlign: 'center',
 };
 
-export default props => (
-  <div style={choiceContainerStyle}>
-    {props.text}
+const Choice = ({ text, action, questionIndex, answerIndex }) => (
+  <div
+    onClick={() => action(questionIndex, answerIndex)}
+    style={choiceContainerStyle}
+  >
+    {text}
   </div>
 );
+
+Choice.propTypes = {
+  text: React.PropTypes.string.isRequired,
+  action: React.PropTypes.func.isRequired,
+  answerIndex: React.PropTypes.number.isRequired,
+  questionIndex: React.PropTypes.number.isRequired,
+};
+
+export default Choice;

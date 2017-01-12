@@ -5,7 +5,9 @@ import reducer from '../reducers';
 const getStore = () => {
   const store = createStore(
     reducer,
-    {},
+    {
+      responses: [],
+    },
     applyMiddleware(thunk),
   );
 
