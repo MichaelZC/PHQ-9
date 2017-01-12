@@ -9,8 +9,14 @@ const promptStyle = {
   fontFamily: 'Roboto, arial, sans-serif',
 };
 
-export default props => (
+const Prompt = ({ text }) => (
   <div style={promptStyle}>
-    {props.text}
+    {text}
   </div>
 );
+
+Prompt.propTypes = {
+  text: React.PropTypes.string.isRequired,
+};
+
+export default Prompt;

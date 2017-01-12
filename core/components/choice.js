@@ -12,6 +12,7 @@ const Choice = ({ selected, text, action, questionIndex, answerIndex }) => (
   <div
     onClick={() => action(questionIndex, answerIndex)}
     style={Object.assign({
+      // Blue if we're selected
       backgroundColor: selected ? '#2196F3' : '#E8EAF6',
     }, choiceContainerStyle)}
   >
