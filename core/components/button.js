@@ -1,6 +1,6 @@
 import React from 'react';
 
-const choiceContainerStyle = {
+const buttonContainerStyle = {
   padding: '1em',
   flex: 1,
   margin: '1em',
@@ -8,19 +8,19 @@ const choiceContainerStyle = {
   textAlign: 'center',
 };
 
-const Choice = ({ selected, text, action, questionIndex, answerIndex }) => (
+const Button = ({ selected, text, action, questionIndex, answerIndex }) => (
   <div
     onClick={() => action(questionIndex, answerIndex)}
     style={Object.assign({
       // Blue if we're selected
       backgroundColor: selected ? '#2196F3' : '#E8EAF6',
-    }, choiceContainerStyle)}
+    }, ButtonContainerStyle)}
   >
     {text}
   </div>
 );
 
-Choice.propTypes = {
+Button.propTypes = {
   text: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired,
   answerIndex: React.PropTypes.number.isRequired,
@@ -28,4 +28,4 @@ Choice.propTypes = {
   selected: React.PropTypes.bool.isRequired,
 };
 
-export default Choice;
+export default Button;

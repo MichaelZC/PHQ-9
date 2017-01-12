@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Choice from '../components/choice';
+import Button from '../components/button';
 import SelectVal from '../actions/selectVal';
 
 const mapDispatchToProps = (dispatch) => {
@@ -14,4 +14,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Choice);
+export default connect(mapStateToProps, mapDispatchToProps)(Button);
