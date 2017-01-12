@@ -1,5 +1,6 @@
 import React from 'react';
-import Text from './components/text';
+import Choice from './components/choice';
+import Row from './components/row';
 
 const textProps = {
   text: 'Hello World!',
@@ -7,6 +8,9 @@ const textProps = {
 
 export default () => (
   <div>
-    <Text {...textProps} />
+    <Row>
+      <Choice {...textProps} />
+      <Choice {...textProps} />
+    </Row>
   </div>
 );
