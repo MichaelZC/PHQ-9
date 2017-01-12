@@ -4,10 +4,11 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import webpackConfig from '../webpack.config';
 import config from './service-config';
+import App from '../core/app';
+import getStore from '../core/store/getStore';
 
 const {
   APP_PORT,
@@ -45,15 +46,15 @@ function intialHTML(appHTML, state) {
 }
 
 function entry(req, res) {
-  const store = createStore({});
+  const store = getStore();
 
   const html = renderToString(
     <Provider store={store}>
-      <div />
+      <App />
     </Provider>,
   );
 
-  res.send(intialHTML(html, {}));
+  res.send(intialHTML(html, store.getState()));
 }
 
 // Main entry, we'll serve the app through here.
