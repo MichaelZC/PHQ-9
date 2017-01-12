@@ -6,6 +6,7 @@ const promptStyle = {
   padding: '1.5em',
   fontSize: '2em',
   margin: 'auto',
+  fontFamily: 'Roboto, arial, sans-serif',
 };
 
 export default props => (
