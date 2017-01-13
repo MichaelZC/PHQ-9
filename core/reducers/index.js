@@ -1,11 +1,25 @@
-// state logic is dead simple atm, so not going to split it out;
-// as this grows I would split and combine;
-export default (state, action) => {
-  const newState = Object.assign({}, state);
-  if (action.type === 'SELECT_VAL') {
-    const { questionIndex, answerIndex } = action.payload;
+// Actually let's try something like this
+const reducers = {
+  SELECT_VAL: (state, payload) => {
+    const newState = Object.assign({}, state);
+    const { questionIndex, answerIndex } = payload;
     newState.responses[questionIndex] = answerIndex;
-  }
-  return newState;
+    return newState;
+  },
+  COMPUTE_SCORE: (state) => {
+    const { responses } = state;
+    const score = responses.reduce((a,b) => a + b, 0);
+    const newState = Object.assign({}, state);
+    newState.score = score;
+    return newState;
+  },
 };
 
+export default (state, { type, payload }) => {
+  if (!reducers[type]) {
+    return state;
+  }
+  const newState = reducers[type](state, payload);
+  // really this should be middleware or something
+  return reducers.COMPUTE_SCORE(newState);
+};

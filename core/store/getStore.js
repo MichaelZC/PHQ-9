@@ -7,11 +7,14 @@ if (typeof window === 'undefined') {
 }
 
 const getStore = () => {
+  // for redux tools
   const composeEnhancers = (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
   const store = createStore(
     reducer,
+    // we'll replace this with our preloaded state at some point
     {
       responses: [],
+      score: 0,
     },
     composeEnhancers(
       applyMiddleware(thunk),
