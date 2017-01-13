@@ -6,6 +6,7 @@ const buttonContainerStyle = {
   margin: '1em',
   border: '0.5px solid #3F51B5',
   textAlign: 'center',
+  transition: '1s',
 };
 
 const Button = ({ selected, text, action, questionIndex, answerIndex }) => (
@@ -13,7 +14,7 @@ const Button = ({ selected, text, action, questionIndex, answerIndex }) => (
     onClick={() => action(questionIndex, answerIndex)}
     style={Object.assign({
       // Blue if we're selected
-      backgroundColor: selected ? '#2196F3' : '#E8EAF6',
+      backgroundColor: selected ? '#2196F3' : '#BBDEFB',
     }, buttonContainerStyle)}
   >
     {text}

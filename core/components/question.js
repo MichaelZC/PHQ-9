@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import TestConstants from '../constants/phq-9-constants';
 import Prompt from '../components/prompt';
 import Button from '../containers/button';
@@ -6,11 +7,12 @@ import Row from '../components/row';
 
 class Question extends React.Component {
   componentDidUpdate() {
-    const { visible } = this.props;
-    if (visible) {
-      window.scrollTo(0,document.body.scrollHeight); //eslint-disable-line
+    if (this.props.visible) {
+      const el = ReactDOM.findDOMNode(this); //eslint-disable-line
+      el.scrollIntoView();
     }
   }
+
   render() {
     const { visible, questionIndex } = this.props;
     return (
@@ -20,6 +22,7 @@ class Question extends React.Component {
           opacity: visible ? '1' : '0',
           transition: '0.75s',
         }}
+        ref={this.setEl}
       >
         <Prompt text={TestConstants.PROMPTS[questionIndex]} />
         <Row>

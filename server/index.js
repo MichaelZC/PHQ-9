@@ -34,12 +34,14 @@ function intialHTML(appHTML, state) {
     <html>
       <head>
       </head>
-      <body>
-        <div id="root">${appHTML}</div>
-        <script>
-          window.initState = ${JSON.stringify(state).replace(/</g, '\\x3c')}
-        </script>
-        <script src="/static/bundle.js"></script>
+      <body style="background-color: #E0F7FA">
+        <div>
+          <div id="root">${appHTML}</div>
+          <script>
+            window.initState = ${JSON.stringify(state).replace(/</g, '\\x3c')}
+          </script>
+          <script src="/static/bundle.js"></script>
+        </div>
       </body>
     </html>
     `;
