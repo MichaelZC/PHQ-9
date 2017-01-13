@@ -12,6 +12,7 @@ export default ({ score }) => {
   const assessment = assess(score);
   return (
     <div style={resultStyle}>
+      {// these can be their own presentational components}
       <h4>{`Your score is ${score}`}</h4>
       <h3>{`Your depression level is ${assessment}`}</h3>
       <Row>

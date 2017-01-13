@@ -1,4 +1,7 @@
 // Actually let's try something like this
+// Playing around with using something that is not a SWITCH statement
+// The issue of not being able to redeclare consts inside of a switch is annoying
+// want to use function scope
 const reducers = {
   SELECT_VAL: (state, payload) => {
     const newState = Object.assign({}, state);

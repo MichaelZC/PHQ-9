@@ -11,10 +11,7 @@ const Row = ({ children }) => (
 );
 
 Row.propTypes = {
-  // We can make this more specific. We know exactly what's going in,
-  // but for now leave it simple.
-  // Revision: actually fuck forgot that children can be an array OR a single element
-  // TODO: create a proptype for this shit.
+  // TODO: We can make this more specific. We know exactly what's going in,
   children: React.PropTypes.any.isRequired, //eslint-disable-line
 };
 
