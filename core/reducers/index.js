@@ -6,11 +6,17 @@ const reducers = {
     newState.responses[questionIndex] = answerIndex;
     return newState;
   },
+  // aggregate score
   COMPUTE_SCORE: (state) => {
     const { responses } = state;
     const score = responses.reduce((a,b) => a + b, 0);
     const newState = Object.assign({}, state);
     newState.score = score;
+    return newState;
+  },
+  COMPLETE_ASSESMENT: (state) => {
+    const newState = Object.assign({}, state);
+    newState.completed = true;
     return newState;
   },
 };
@@ -20,6 +26,6 @@ export default (state, { type, payload }) => {
     return state;
   }
   const newState = reducers[type](state, payload);
-  // really this should be middleware or something
+  // really this should be middleware
   return reducers.COMPUTE_SCORE(newState);
 };

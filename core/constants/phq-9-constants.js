@@ -19,7 +19,14 @@ const PROMPTS = [
   'Thoughts that you would be better off dead, or of hurting yourself in some way?',
 ];
 
+const PROFESSIONALS = [
+  'Dr. Smith',
+  'Dr. Jane',
+  'Dr. Grant',
+];
+
 export default {
   PROMPTS,
   RESPONSES,
+  PROFESSIONALS,
 };
